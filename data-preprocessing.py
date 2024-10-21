@@ -44,3 +44,14 @@ print("y_train",y_train,"\n")
 print("y_test",y_test,"\n")
 
 #Feature Scaling
+
+from sklearn.preprocessing import StandardScaler
+standardScaler = StandardScaler()
+x_train[:,3:] = standardScaler.fit_transform(x_train[:,3:])
+x_test[:,3:] = standardScaler.fit_transform(x_test[:,3:])
+
+print("After feature scaling \n")
+print("x_train",x_train,"\n")
+print("x_test",x_test,"\n")
+
+
