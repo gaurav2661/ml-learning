@@ -94,7 +94,49 @@ regressor: This is the Linear Regression model that has already been trained on 
  When you call predict() on the model, it uses the parameters (coefficients) that were learned during training to generate predicted values for the input data.
 
 x_test: These are the input features (independent variables) from the test dataset.
- The test dataset contains new, unseen data, which the model hasn't encountered during training. x_test is typically a portion of the data that was split off from the original dataset to evaluate the performance of the model after training.
+ The test dataset contains new, unseen data, which the model hasn't encountered during training.
+  x_test is typically a portion of the data that was split off from the original dataset to evaluate the performance of the model after training.
+  
+                                 What happens when you call regressor.predict(x_test)?
+The trained model takes the input features from x_test (such as years of experience in a salary prediction task) and
+ applies the learned coefficients (slope w and intercept b) to predict the target variable (e.g., salary).
+
+For a simple linear regression model, the prediction for each test example can be computed using the equation:
+
+y(pred)=w⋅x + b
+
+where:
+
+y_pred is the predicted salary,
+x is the years of experience (input feature),
+w is the learned weight (slope),
+b is the learned intercept.
+
+For multiple linear regression, where you have multiple features, the model makes predictions by applying the learned weights to each feature. The equation becomes:
+
+𝑦(pred)=𝑤1⋅𝑥1 + 𝑤2⋅𝑥2 +⋯+ 𝑤𝑛⋅𝑥𝑛 + b
+where each x_n is one of the features in the test set, and each w_n is the corresponding learned coefficient for that feature.
 '''
-regressor.predict(x_test)
+y_pred = regressor.predict(x_test)
+x_pred = regressor.predict(x_train)
+
+# Visualize results of training set
+
+plt.scatter(x_train,y_train,color = 'red')
+plt.plot(x_train,x_pred,color = 'blue')
+plt.title('Salary vs Experience of Training set')
+plt.xlabel("Years of Experience")
+plt.ylabel("Salary")
+plt.show()
+
+# Visualize results of test set
+
+plt.scatter(x_test,y_test,color = 'red')
+plt.plot(x_train,x_pred,color = 'blue')
+plt.title('Salary vs Experience of Test set')
+plt.xlabel("Years of Experience")
+plt.ylabel("Salary")
+plt.show()
+
+
 
