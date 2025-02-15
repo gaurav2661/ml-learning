@@ -9,12 +9,16 @@ y = dataset.iloc[:, -1].values
 print(x)
 
 print(y)
-
+'''
+This imports the SimpleImputer class from sklearn.
+impute, which is used to handle missing values in 
+datasets by replacing them with specified values (such as the mean, median, or most frequent value).
+'''
 from sklearn.impute import SimpleImputer
 imputer = SimpleImputer(missing_values=np.nan,strategy='mean')
 imputer.fit(x[:, 1:3])
 x[:, 1:3] = imputer.transform(x[:, 1:3])
-
+print("After one Imputer \n")
 print(x,"\n")
 
 from sklearn.compose import ColumnTransformer
