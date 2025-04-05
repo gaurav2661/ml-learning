@@ -34,7 +34,27 @@ print("After feature scaling \n")
 print("x_train",x_train_1,"\n")
 print("x_test",x_test_1,"\n")
 
+## Classification
+
 from sklearn.linear_model import  LogisticRegression
 classifier = LogisticRegression(random_state=0)
 classifier.fit(x_train,y_train)
+
+## Prediction
+
+print(classifier.predict(standardScaler.transform([[30,87000]])))
+
+## Predicted vs Real Result
+
+y_pred = classifier.predict(x_test)
+print(np.concatenate((y_pred.reshape(len(y_pred,),1),y_test.reshape(len(y_test),1)),1))
+
+## making confusion matrix
+
+from sklearn.metrics import confusion_matrix, accuracy_score
+cm = confusion_matrix(y_test,y_pred)
+print(cm)
+
+print("Accuracy ",accuracy_score(y_test,y_pred))
+
 
