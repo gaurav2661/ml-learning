@@ -65,7 +65,8 @@ transformers=[('encoder', OneHotEncoder(), [0])]: This defines the transformatio
 'encoder': This is just a name given to the transformation for identification (can be anything).
 OneHotEncoder(): This specifies that you want to apply one-hot encoding to the specified columns.
 [0]: This indicates that you want to apply the transformation (one-hot encoding) to the first column (index 0) of the dataset x.
-remainder='passthrough': This tells the ColumnTransformer to leave all other columns (columns not listed for transformation) unchanged and pass them through without modification. So, any columns that are not the first column will be retained as they are.
+remainder='passthrough': This tells the ColumnTransformer to leave all other columns (columns not listed for transformation)
+ unchanged and pass them through without modification. So, any columns that are not the first column will be retained as they are.
 
 
 
